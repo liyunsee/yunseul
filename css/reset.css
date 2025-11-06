@@ -1,0 +1,164 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* 공통정의 */
+:root {
+  --main-color: #386ca0;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: top;
+  box-sizing: border-box; /* bxbb */
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1.2;
+  font: 1rem Pretendard, sans-serif;
+  overflow-x: hidden; /* ovxh */
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none; /* tdn */
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline; /* tdu */
+  color: var(--main-color);
+}
+
+/* 숨겨져야하는 요소들에 대한 정의 diplay:none 대체 */
+hr,
+.hidden {
+  position: absolute; /* posa */
+  width: 0;
+  height: 0;
+  overflow: hidden; /* oh */
+  clip-path: inset(100%);
+}
+
+.inner {
+  /* w1200+m0-a+bg */
+  width: 1180px;
+  height: 100%;
+  margin: 0 auto;
+  background: rgba(255, 255, 0, 0.1);
+}
