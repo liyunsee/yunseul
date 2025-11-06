@@ -1,4 +1,38 @@
 @charset "UTF-8";
+
+/* CONTACT 섹션 전체 반짝반짝 효과 */
+
+.contect-section .sparkle-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.sparkle-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 90%, #b3c7df 100%);
+  opacity: 0.95;
+  animation: sparkleDot 2.5s infinite ease-in-out;
+  box-shadow: 0 0 2px 1px #fff, 0 0 4px 2px #b3c7df;
+  filter: blur(0.3px);
+}
+
+@keyframes sparkleDot {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
 /* 마우스 별 효과 */
 .star {
   position: fixed;
@@ -108,7 +142,14 @@ section {
 
 section.section2 {
   height: fit-content;
-  background: linear-gradient(to top, #00274e 30%, #fff 31%, #fff 100%);
+  background: linear-gradient(
+    to top,
+    #00274e 0%,
+    #3a5a7c 20%,
+    #b3c7df 40%,
+    #fff 70%,
+    #fff 100%
+  );
 }
 
 .scroll-down {
@@ -228,14 +269,15 @@ section.section2 {
   left: -30px;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 10px;
 }
 
 .header .nav a {
   border: 1px solid #000;
-  padding: 10px 30px;
+  font-weight: 400;
+  padding: 9px 50px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   white-space: nowrap;
   color: #000000;
   position: relative;
@@ -292,12 +334,12 @@ section.section2 {
   font-size: 140px;
   font-weight: 700;
   bottom: -50px;
-  color: #5f5f5f;
+  color: #c2c2c2;
 }
 
 .wrap {
   position: absolute;
-  top: 125px;
+  top: 165px;
   left: 0;
   z-index: 10;
   transform: rotate(-10deg);
@@ -311,7 +353,7 @@ section.section2 {
 }
 
 .about-info {
-  margin-top: 30px;
+  margin-top: 50px;
   display: flex;
   gap: 40px;
 }
@@ -388,8 +430,8 @@ section.section2 {
 }
 
 .skill-item img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .skill strong {
@@ -449,9 +491,10 @@ section.section2 {
 }
 
 .swiper-bth {
+  width: 50px;
   position: absolute;
   bottom: 150px;
-  right: 340px;
+  right: 332px;
   width: fit-content;
   display: flex;
   justify-content: space-between;
@@ -469,8 +512,8 @@ section.section2 {
 }
 
 .swiper-pagination-bullet {
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   background: rgba(0, 0, 0, 0.3);
   opacity: 1;
 }
@@ -617,7 +660,7 @@ section.section2 {
 }
 
 .swiper-bth img {
-  width: 20px;
+  width: 30px;
   height: auto;
 }
 
@@ -1560,11 +1603,11 @@ input:checked ~ .toggle-text {
 
 .contect-info {
   position: absolute;
-  top: 440px;
-  left: 80px;
-  transform: none;
+  left: 50%;
+  top: 63%;
+  transform: translate(-50%, -50%);
   width: fit-content;
-  /* background: yellow; */
+  text-align: center;
 }
 .contect-section {
   position: relative;
@@ -1617,7 +1660,7 @@ input:checked ~ .toggle-text {
 .contect-title {
   position: absolute;
   top: 260px;
-  left: 80px;
+  left: 30%;
   z-index: 100;
   font-size: 120px;
   font-weight: 900;
@@ -1629,10 +1672,25 @@ input:checked ~ .toggle-text {
   transition: all 0.1s ease;
 }
 
-.contect-title:hover {
+.yunseul-text {
+  color: #fff;
+  /* background: rgba(255, 255, 255, 0.85); */
+  font-size: 20px;
+  font-weight: 700;
+  top: 470px;
+  left: 35%;
+  /* padding: 12px 32px; */
+  /* border-radius: 12px; */
+  z-index: 100;
+  position: relative;
+  opacity: 1 !important;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+/* .contect-title:hover {
   color: #ddd;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
+} */
 
 .contect-title .char {
   display: inline-block;
@@ -1650,39 +1708,38 @@ input:checked ~ .toggle-text {
 
 .contect-info {
   /* position: relative; */
-  left: 96px;
+  left: 866pxpx;
   bottom: 500px;
   /* border: 1px solid #ffffff; */
 }
 .contect-info dl dt {
-  font-size: 60px;
+  font-size: 30px;
   font-weight: 500;
-  text-align: left;
   color: #fff;
-  /* left: 100px; */
   position: relative;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
 }
 
-.contect-info dl dt::before {
+/* .contect-info dl dt::before {
   content: "";
   position: absolute;
   bottom: 8px;
   left: 0;
   width: 0;
-  height: 30px;
-  background-color: rgb(124, 153, 177);
+  height: 15px;
+  background-color: rgb(167, 216, 255);
   z-index: -1;
   transition: width 1s ease-out 1s;
-}
+} */
 
 .contect-info dl dt.animate::before {
-  width: 550px;
+  width: 300px;
 }
 
 .contect-info dl dd {
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 400;
   color: #fff;
 }
 

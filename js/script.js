@@ -270,15 +270,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // Lenis는 상단에서 이미 초기화됨
 
   gsap.set(".image-motion", {
+    opacity: 0,
+    y: -100,
     transform: "rotatex(90deg)",
   });
 
   gsap.to(".image-motion", {
+    opacity: 1,
+    y: 0,
     transform: "rotatex(0deg)",
+    duration: 1.2,
+    ease: "power2.out",
     scrollTrigger: {
       trigger: ".section2",
-      start: "top bottom",
-      end: "bottom top",
+      start: "top 80%",
+      end: "top 30%",
       scrub: true,
       markers: true,
     },
@@ -1526,4 +1532,31 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     ScrollTrigger.refresh();
   }, 100);
+
+  // CONTACT 섹션 반짝반짝 효과 동적 생성
+  function createContactSparkle() {
+    const contactSection = document.querySelector(".contect-section");
+    if (!contactSection) return;
+
+    // 이미 sparkle-bg가 있으면 중복 생성 방지
+    if (contactSection.querySelector(".sparkle-bg")) return;
+
+    const sparkleBg = document.createElement("div");
+    sparkleBg.className = "sparkle-bg";
+    contactSection.appendChild(sparkleBg);
+
+    // 랜덤 위치에 여러 개의 sparkle-dot 생성
+    for (let i = 0; i < 12; i++) {
+      const dot = document.createElement("div");
+      dot.className = "sparkle-dot";
+      // 랜덤 위치/크기/애니메이션 딜레이
+      dot.style.top = Math.random() * 90 + "%";
+      dot.style.left = Math.random() * 95 + "%";
+      dot.style.width = dot.style.height = Math.random() * 0.4 + 0.2 + "px";
+      dot.style.animationDelay = Math.random() * 2.5 + "s";
+      sparkleBg.appendChild(dot);
+    }
+  }
+
+  createContactSparkle();
 });
