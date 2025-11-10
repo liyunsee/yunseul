@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.84), 0 0 30px rgba(255, 255, 255, 1);
+    box-shadow: 0 0 15px #386CA0cc, 0 0 30px #386CA0aa;
     border: none;
     outline: none;
   `;
@@ -59,14 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // section2, banner-section, yunseul-picture, contect-section에서는 기본 밝은 색상
         customCursor.style.background =
           "radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%)";
-        customCursor.style.boxShadow =
-          "0 0 15px rgba(255, 255, 255, 0.88), 0 0 30px rgba(251, 253, 255, 0.83)";
+        customCursor.style.boxShadow = "0 0 15px #386CA0cc, 0 0 30px #386CA0aa";
       } else {
         // 다른 영역에서는 검은색
         customCursor.style.background =
-          "radial-gradient(circle, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, transparent 100%)";
-        customCursor.style.boxShadow =
-          "0 0 15px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 0, 0, 0.9)";
+          "radial-gradient(circle, rgba(75, 137, 189, 0.9) 0%, rgba(75, 137, 189, 0.9) 50%, transparent 100%)";
+        customCursor.style.boxShadow = "0 0 15px #386CA0cc, 0 0 30px #386CA0aa";
       }
 
       // 커스텀 커서 위치 업데이트
@@ -131,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
       colors = ["#e7f8ff", "#ffffff", "#ffffffff"];
     } else {
       // 다른 섹션에서는 검은색
-      colors = ["#000000", "#1a1a1a", "#0d0d0d"];
+      colors = ["#386CA0", "#386CA0", "#386CA0"];
     }
 
     const randomColor = colors[Math.floor(Math.random() * colors.length)];

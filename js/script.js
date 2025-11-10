@@ -24,43 +24,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   gsap.ticker.lagSmoothing(0);
 
-  // 섹션 스냅 효과 - 각 섹션에 강하게 고정
+  // 섹션 스냅 효과 - 각 섹션에 강하게 고정 (banner-section이 section 태그로 변경되었으므로 section만 선택)
   const sections = gsap.utils.toArray("section");
   sections.forEach((section, i) => {
+    const isBanner = section.classList.contains("banner-section");
     ScrollTrigger.create({
       trigger: section,
       start: "top top",
       end: "bottom top",
-      snap: {
-        snapTo: 1,
-        duration: 0.8,
-        delay: 0,
-        ease: "power2.inOut",
-      },
+      snap: isBanner
+        ? false
+        : {
+            snapTo: 1,
+            duration: 0.8,
+            delay: 0,
+            ease: "power2.inOut",
+          },
       onEnter: () => {
-        lenis.scrollTo(section, { offset: 0, duration: 0.8 });
+        if (!isBanner) {
+          lenis.scrollTo(section, { offset: 0, duration: 0.8 });
+        }
       },
     });
   });
-
-  // banner-section에도 스냅 효과 추가
-  const bannerSnapSection = document.querySelector(".banner-section");
-  if (bannerSnapSection) {
-    ScrollTrigger.create({
-      trigger: bannerSnapSection,
-      start: "top top",
-      end: "bottom top",
-      snap: {
-        snapTo: 1,
-        duration: 0.8,
-        delay: 0,
-        ease: "power2.inOut",
-      },
-      onEnter: () => {
-        lenis.scrollTo(bannerSnapSection, { offset: 0, duration: 0.8 });
-      },
-    });
-  }
 
   // 헤더 스크롤 진행률 애니메이션
   const header = document.querySelector(".header");
@@ -89,9 +75,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 전체 스크롤 진행률 계산 함수
   function updateHeaderFill() {
-    const sections = [section3, section4, section5, section6].filter(
-      (s) => s !== null
-    );
+    // Banner 섹션도 헤더 진행률에 포함
+    const bannerSection = document.querySelector(".banner-section");
+    const sections = [
+      section3,
+      section4,
+      section5,
+      bannerSection,
+      section6,
+    ].filter((s) => s !== null);
     const scrollY = window.scrollY;
 
     navLinks.forEach((link, index) => {
@@ -99,64 +91,64 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!currentSection) {
         return;
       }
-
       const sectionTop = currentSection.offsetTop;
       const sectionBottom = sectionTop + currentSection.offsetHeight;
       let fillPercent = 0;
 
-      if (index === 3 && section5) {
-        // Contact 헤더 - section5 끝에서부터 section6 시작까지 점점 채우기
-        const section5Bottom = section5.offsetTop + section5.offsetHeight;
-
-        if (scrollY >= sectionTop) {
-          // section6 도달 - 100%
-          fillPercent = 100;
-        } else if (scrollY >= section5Bottom) {
-          // section5 끝과 section6 시작 사이 - 점점 채우기
-          const rangeHeight = sectionTop - section5Bottom;
-          const progressInRange = scrollY - section5Bottom;
-          fillPercent = (progressInRange / rangeHeight) * 100;
+      // Banner 섹션(헤더 네 번째)일 때 진행률 계산
+      if (
+        currentSection.classList &&
+        currentSection.classList.contains("banner-section")
+      ) {
+        // 앞 섹션들과 동일하게: section5~bannerSection 사이에서 점진적으로 채워짐
+        if (section5) {
+          const prevSection = section5;
+          const prevTop = prevSection.offsetTop;
+          const sectionTop = currentSection.offsetTop;
+          if (scrollY >= sectionTop) {
+            fillPercent = 100;
+          } else if (scrollY >= prevTop && scrollY < sectionTop) {
+            const rangeHeight = sectionTop - prevTop;
+            const progressInRange = scrollY - prevTop;
+            fillPercent = (progressInRange / rangeHeight) * 100;
+          } else {
+            fillPercent = 0;
+          }
         } else {
-          // section5 내부 - 0%
-          fillPercent = 0;
+          if (scrollY >= sectionTop) {
+            fillPercent = 100;
+          } else {
+            fillPercent = 0;
+          }
         }
       } else {
-        // 나머지 헤더들
+        // 나머지 헤더들 (기존 로직)
         const nextSection = sections[index + 1];
-
         if (nextSection) {
           const nextSectionTop = nextSection.offsetTop;
-
           if (scrollY >= nextSectionTop) {
-            // 다음 섹션에 도달 - 100% 유지
             fillPercent = 100;
           } else if (scrollY >= sectionTop) {
-            // 현재 섹션 내부 - 100% 채움
             fillPercent = 100;
           } else if (index > 0 && sections[index - 1]) {
-            // 이전 섹션에서 현재 섹션으로 이동 중
             const prevSection = sections[index - 1];
             const prevTop = prevSection.offsetTop;
-
             if (scrollY >= prevTop && scrollY < sectionTop) {
               const rangeHeight = sectionTop - prevTop;
               const progressInRange = scrollY - prevTop;
               fillPercent = (progressInRange / rangeHeight) * 100;
             }
           } else if (index === 0) {
-            // 첫 번째 링크
             if (scrollY > 0 && scrollY < sectionTop) {
               fillPercent = (scrollY / sectionTop) * 100;
             }
           }
         } else {
-          // 다음 섹션이 없는 경우
           if (scrollY >= sectionTop) {
             fillPercent = 100;
           } else if (index > 0 && sections[index - 1]) {
             const prevSection = sections[index - 1];
             const prevTop = prevSection.offsetTop;
-
             if (scrollY >= prevTop && scrollY < sectionTop) {
               const rangeHeight = sectionTop - prevTop;
               const progressInRange = scrollY - prevTop;
@@ -1095,7 +1087,7 @@ document.addEventListener("DOMContentLoaded", () => {
       color: "#3cb6aa",
     },
     {
-      title: "OldFerryDount(2)",
+      title: "OldFerryDount",
       description: "OldFerryDount X Starbucks Banner Design",
       color: "#e104b5",
     },
@@ -1115,9 +1107,9 @@ document.addEventListener("DOMContentLoaded", () => {
       color: "#dcac18",
     },
     {
-      title: "프로젝트 11",
-      description: "설명 11",
-      color: "#32CD32",
+      title: "TalesRunner",
+      description: "Tales Runner X 귀멸의 칼날 Banner Design",
+      color: "#c23234",
     },
     {
       title: "프로젝트 12",
@@ -1142,6 +1134,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalCards = bannerCards.length;
 
     bannerCards.forEach((card, index) => {
+      // 위치 관련 스타일 강제 리셋
+      card.style.transform = "";
+      card.style.left = "";
+      card.style.top = "";
+      card.style.position = "";
       card.classList.remove(
         "active",
         "prev-1",
@@ -1246,6 +1243,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (detailPanel && detailPanel.classList.contains("active")) {
           return;
         }
+        // 애니메이션 중이면 무시 (중복 방지)
+        if (isBannerAnimating) return;
 
         // 활성 카드 영역 위에서만 휠로 카드 전환
         const activeCard = document.querySelector(".banner-card.active");
@@ -1268,6 +1267,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             clearTimeout(wheelTimeout);
             wheelTimeout = setTimeout(() => {
+              if (isBannerAnimating) return;
               if (e.deltaY > 0) {
                 nextBanner();
               } else if (e.deltaY < 0) {
@@ -1367,9 +1367,9 @@ document.addEventListener("DOMContentLoaded", () => {
       images: ["./banner/bg1.png", "./banner/bg2.png", "./banner/bg3.png"],
     },
 
-    // [10] 배너 11: "프로젝트 11" - 설명 11
+    // [10] 배너 11: 테일즈런너
     {
-      images: ["./pic/project11_1.jpg", "./pic/project11_2.jpg"],
+      images: ["./banner/tr01.png", "./banner/tr02.png", "./banner/tr03.png"],
     },
 
     // [11] 배너 12: "프로젝트 12" - 설명 12
