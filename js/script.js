@@ -1,3 +1,109 @@
+<<<<<<< HEAD
+=======
+// MUSINSA Codimap Swiper 인스턴스 및 버튼 연동
+let musinsaCodimapSwiper = null;
+function initMusinsaCodimapSwiper() {
+  if (musinsaCodimapSwiper) {
+    musinsaCodimapSwiper.destroy(true, true);
+    musinsaCodimapSwiper = null;
+  }
+  const el = document.querySelector(".musinsa-codimap-swiper");
+  if (!el) return;
+  musinsaCodimapSwiper = new Swiper(el, {
+    loop: true,
+    pagination: {
+      el: ".musinsa-codimap-pagination",
+      clickable: true,
+    },
+    slidesPerView: 1,
+    speed: 600,
+    effect: "slide",
+  });
+  // 오른쪽 > 버튼 클릭 시 다음 슬라이드
+  const nextBtn = document.querySelector(".musinsa-codimap-arrow");
+  if (nextBtn) {
+    nextBtn.onclick = () => {
+      musinsaCodimapSwiper.slideNext();
+    };
+  }
+}
+
+// DOMContentLoaded 후 musinsa-codimap-swiper 자동 초기화
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(initMusinsaCodimapSwiper, 300);
+});
+// Etc Work2 Swiper 갤러리 초기화 함수
+let etcWork2Swiper = null;
+function initEtcWork2Swiper() {
+  // 이미 초기화된 경우 파괴 후 재생성(탭 전환 시 중복 방지)
+  if (etcWork2Swiper) {
+    etcWork2Swiper.destroy(true, true);
+    etcWork2Swiper = null;
+  }
+  const el = document.querySelector(".etc-work2-swiper");
+  if (!el) return;
+  etcWork2Swiper = new Swiper(el, {
+    loop: true,
+    pagination: {
+      el: ".etc-work2-swiper .swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".etc-work2-next",
+      prevEl: ".etc-work2-prev",
+    },
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 600,
+    effect: "slide",
+  });
+}
+// Etc Work 탭 전환 기능 (Work 1/2)
+function initEtcWorkTabs() {
+  const tabButtons = document.querySelectorAll(".etc-work-tab-btn");
+  const workContents = document.querySelectorAll(".etc-work-content");
+  if (!tabButtons.length || !workContents.length) return;
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      // 탭 버튼 활성화
+      tabButtons.forEach((b) => b.classList.remove("active"));
+      this.classList.add("active");
+      // 작업물 컨텐츠 전환
+      const workNum = this.dataset.target;
+      workContents.forEach((content) => {
+        if (content.classList.contains("etc-work-" + workNum)) {
+          content.style.display = "";
+          content.classList.add("active");
+          // Work 2(슬라이드) 탭이 활성화될 때 Swiper 초기화
+          if (workNum === "2") {
+            setTimeout(initEtcWork2Swiper, 100);
+          } else {
+            // Work 1로 전환 시 Swiper 파괴
+            if (etcWork2Swiper) {
+              etcWork2Swiper.destroy(true, true);
+              etcWork2Swiper = null;
+            }
+          }
+        } else {
+          content.style.display = "none";
+          content.classList.remove("active");
+        }
+      });
+    });
+  });
+}
+
+// DOMContentLoaded 후 실행
+setTimeout(() => {
+  initEtcWorkTabs();
+  // 페이지 로드시 Work 2가 기본 활성화면 Swiper도 초기화
+  const work2Active = document.querySelector(".etc-work-2.active");
+  if (work2Active) {
+    setTimeout(initEtcWork2Swiper, 100);
+  }
+}, 300);
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
@@ -8,6 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
     smooth: true,
     smoothTouch: false,
   });
+<<<<<<< HEAD
+=======
+  // window에 lenis 인스턴스 할당 (header-scroll.js에서 접근 가능하도록)
+  window.lenis = lenis;
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
 
   function raf(time) {
     lenis.raf(time);
@@ -27,11 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // 섹션 스냅 효과 - 각 섹션에 강하게 고정 (banner-section이 section 태그로 변경되었으므로 section만 선택)
   const sections = gsap.utils.toArray("section");
   sections.forEach((section, i) => {
+<<<<<<< HEAD
     const isBanner = section.classList.contains("banner-section");
+=======
+    // snap 및 onEnter 옵션 제거: Lenis scrollTo와의 충돌 방지
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
     ScrollTrigger.create({
       trigger: section,
       start: "top top",
       end: "bottom top",
+<<<<<<< HEAD
       snap: isBanner
         ? false
         : {
@@ -45,6 +161,9 @@ document.addEventListener("DOMContentLoaded", () => {
           lenis.scrollTo(section, { offset: 0, duration: 0.8 });
         }
       },
+=======
+      // snap, onEnter 옵션 제거
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
     });
   });
 
@@ -175,8 +294,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // 초기 실행
   updateHeaderFill();
 
+<<<<<<< HEAD
   // 초기 상태 설정: 배경 원형과 내용 요소들 숨기기
   gsap.set(".samsung-bg, .jeju-bg, .orbit-bg", { scale: 0 });
+=======
+  // 초기 상태 설정: 배경 원형과 내용 요소들 숨기기 (첫 슬라이드는 보이게)
+  gsap.set(".samsung-bg, .jeju-bg, .orbit-bg", { scale: 0 });
+  // 모든 슬라이드 텍스트 숨김
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
   gsap.set(
     ".samsung-title, .jeju-title, .orbit-title, .samsung-subtitle, .jeju-subtitle, .orbit-subtitle, .samsung-des, .jeju-des, .orbit-des, .samsung-btn, .jeju-btn, .orbit-btn",
     {
@@ -184,6 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
       y: 30,
     }
   );
+<<<<<<< HEAD
 
   // Etc Work 섹션 초기 상태 설정
   gsap.set(".graduation-fashion", { opacity: 0, y: 50 });
@@ -258,6 +384,59 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
   }, 500); // 페이지 로드 후 0.5초 대기
+=======
+  // 첫 번째 슬라이드의 텍스트만 보이게
+  const firstSlide = document.querySelector(".website-slider .swiper-slide");
+  if (firstSlide) {
+    const firstTexts = firstSlide.querySelectorAll(
+      ".samsung-title, .jeju-title, .orbit-title, .samsung-subtitle, .jeju-subtitle, .orbit-subtitle, .samsung-des, .jeju-des, .orbit-des, .samsung-btn, .jeju-btn, .orbit-btn"
+    );
+    firstTexts.forEach((el) => {
+      gsap.set(el, { opacity: 1, y: 0 });
+    });
+  }
+
+  // Etc Work 탭 전환 기능 (musinsa swiper 연동)
+  function initEtcWorkTabs() {
+    const tabButtons = document.querySelectorAll(".etc-work-tab");
+    const workContents = document.querySelectorAll(".etc-work-content");
+    if (!tabButtons.length || !workContents.length) return;
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        // 탭 버튼 활성화
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+        // 작업물 컨텐츠 전환
+        const workNum = this.dataset.work;
+        workContents.forEach((content, idx) => {
+          if (content.classList.contains("etc-work-" + workNum)) {
+            content.style.display = "";
+            content.classList.add("active");
+            // musinsa 탭이 활성화될 때 Swiper 초기화
+            if (workNum === "2") {
+              setTimeout(initMusinsaSwiper, 100);
+            }
+          } else {
+            content.style.display = "none";
+            content.classList.remove("active");
+          }
+        });
+      });
+    });
+  }
+
+  // DOMContentLoaded 후 실행
+  setTimeout(() => {
+    initEtcWorkTabs();
+    // 페이지 로드시 musinsa 탭이 기본 활성화면 Swiper도 초기화
+    const musinsaActive = document.querySelector(".etc-work-2.active");
+    if (musinsaActive) {
+      setTimeout(initMusinsaSwiper, 100);
+    }
+  }, 300);
+  // (불필요한 중복 코드 제거됨)
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
 
   // Lenis는 상단에서 이미 초기화됨
 
@@ -1057,6 +1236,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // Banner Carousel 기능
   const bannerData = [
     {
+<<<<<<< HEAD
+=======
+      title: "BattleGround",
+      description: "BattleGround X HYUNDEI Banner Design",
+      color: "#dcac18",
+    },
+    {
+      title: "MapleStory",
+      description: "MapleStory X SANRIO Banner Design",
+      color: "#3814cd",
+    },
+    {
+      title: "동물의 숲",
+      description: "MineCraft X 동물의 숲 Banner Design",
+      color: "#42af53",
+    },
+    {
+      title: "TalesRunner",
+      description: "Tales Runner X 귀멸의 칼날 Banner Design",
+      color: "#c23234",
+    },
+    // 5~8번에 기존 1,2,3,4번 데이터 삽입
+    {
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
       title: "HARIBO",
       description: "HARIBO Banner Design",
       color: "#FFD700",
@@ -1076,6 +1279,10 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Banner Design",
       color: "#ec6e3c",
     },
+<<<<<<< HEAD
+=======
+    // 나머지 동일
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
     {
       title: "MEGABOX",
       description: " MEGABOX X GS 칼텍스 Banner Design",
@@ -1092,6 +1299,7 @@ document.addEventListener("DOMContentLoaded", () => {
       color: "#e104b5",
     },
     {
+<<<<<<< HEAD
       title: "MineCraft",
       description: "MineCraft X 동물의 숲 Banner Design",
       color: "#42af53",
@@ -1112,6 +1320,8 @@ document.addEventListener("DOMContentLoaded", () => {
       color: "#c23234",
     },
     {
+=======
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
       title: "프로젝트 12",
       description: "설명 12",
       color: "#FF4500",
@@ -1293,16 +1503,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 배너별 디테일 이미지
   const detailData = [
+<<<<<<< HEAD
     // [0] 배너 1: "HARIBO" - HARIBO Banner Design
     {
       images: [
         "./banner/haribo1.png", // 로컬 이미지 경로 예시
+=======
+    // 1~4번에 8,9,10,11번 detail 삽입
+    {
+      images: ["./banner/bg1.png", "./banner/bg2.png", "./banner/bg3.png"],
+    },
+    {
+      images: [
+        "./banner/maple01.png",
+        "./banner/maple02.png",
+        "./banner/maple03.png",
+      ],
+    },
+    {
+      images: [
+        "./banner/nin01.png",
+        "./banner/nin02.png",
+        "./banner/nin03.png",
+      ],
+    },
+    {
+      images: ["./banner/tr01.png", "./banner/tr02.png", "./banner/tr03.png"],
+    },
+    // 5~8번에 기존 1,2,3,4번 detail 삽입
+    {
+      images: [
+        "./banner/haribo1.png",
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
         "./banner/haribo2.png",
         "./banner/haribo3.png",
       ],
     },
+<<<<<<< HEAD
 
     // [1] 배너 2: 스타벅스
+=======
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
     {
       images: [
         "./banner/star01.png",
@@ -1310,6 +1551,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "./banner/star03.png",
       ],
     },
+<<<<<<< HEAD
 
     // [2] 배너 3: yes24
     {
@@ -1317,6 +1559,11 @@ document.addEventListener("DOMContentLoaded", () => {
     },
 
     // [3] 배너 4: 홈포장마차
+=======
+    {
+      images: ["./banner/yes02.png", "./banner/yes03.png"],
+    },
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
     {
       images: [
         "./banner/home1.png",
@@ -1324,6 +1571,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "./banner/home3.png",
       ],
     },
+<<<<<<< HEAD
+=======
+    // 나머지 동일
+>>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
 
     // [4] 배너 5: gs
     {

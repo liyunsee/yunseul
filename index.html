@@ -30,9 +30,10 @@
           <svg
             width="100%"
             height="100%"
-            viewBox="0 0 528 125"
+            viewBox="-10 -10 548 145"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            style="overflow: visible"
           >
             <path
               id="motion-path"
@@ -150,6 +151,7 @@
         >
       </div>
     </section>
+    <script src="./js/header-scroll.js"></script>
 
     <section class="section2">
       <div class="image-motion">
@@ -176,15 +178,17 @@
     <!-- 헤더  -->
     <header class="header">
       <nav class="nav">
-        <a href="#" data-target="section3"><span>About Me</span></a>
-        <a href="#" data-target="section4"><span>Project</span></a>
-        <a href="#" data-target="section5"><span>Etc Work</span></a>
-        <a href="#" data-target="banner-section"><span>Banner</span></a>
-        <a href="#" data-target="section6"><span>Contact</span></a>
+        <a href="#section3" data-target="section3"><span>About Me</span></a>
+        <a href="#section4" data-target="section4"><span>Project</span></a>
+        <a href="#section5" data-target="section5"><span>Etc Work</span></a>
+        <a href="#banner-section" data-target="banner-section"
+          ><span>Design</span></a
+        >
+        <a href="#section6" data-target="section6"><span>Contact</span></a>
       </nav>
     </header>
 
-    <section class="section3">
+    <section class="section3" id="section3">
       <div class="about-wrap">
         <div class="about-me">
           <figure class="profile">
@@ -336,7 +340,7 @@
               <img src="./ico/vscode.svg" alt="" />
             </div>
             <div class="skill-item" style="--bar-width: 414px">
-              <img src="./ico/ind.svg" alt="" />
+              <img src="./ico/xd.png" alt="" />
             </div>
           </div>
         </div>
@@ -347,7 +351,7 @@
       </figure> -->
     </section>
 
-    <section class="section4">
+    <section class="section4" id="section4">
       <div class="website-slider-wrap">
         <!-- 버튼 배치 -->
         <div class="swiper-bth">
@@ -437,68 +441,104 @@
       </figure> -->
     </section>
 
-    <section class="section5">
+    <section class="section5" id="section5">
       <div class="etc-work-container">
         <div class="etc-work-header">
           <h1 class="etc-work-title">
             Etc Work<span class="highlight">.</span>
           </h1>
         </div>
-
-        <div class="graduation-fashion">
-          <div class="fashion-content">
-            <div class="fashion-gallery">
-              <div class="main-images">
-                <div class="large-image">
-                  <video autoplay loop muted playsinline>
-                    <source src="./vd/becolord.mp4" type="video/mp4" />
-                  </video>
+        <div class="etc-work-tab-buttons">
+          <button class="etc-work-tab-btn active" data-target="1">
+            Work 1
+          </button>
+          <button class="etc-work-tab-btn" data-target="2">Work 2</button>
+        </div>
+        <div class="etc-work-content etc-work-1 active">
+          <div class="graduation-fashion">
+            <div class="fashion-content">
+              <div class="fashion-gallery">
+                <div class="main-images">
+                  <div class="large-image">
+                    <video autoplay loop muted playsinline>
+                      <source src="./vd/becolord.mp4" type="video/mp4" />
+                    </video>
+                  </div>
+                  <div class="large-image">
+                    <video autoplay loop muted playsinline>
+                      <source src="./vd/red.mp4" type="video/mp4" />
+                    </video>
+                  </div>
+                  <div class="large-image">
+                    <video autoplay loop muted playsinline>
+                      <source src="./vd/orange.mp4" type="video/mp4" />
+                    </video>
+                  </div>
                 </div>
-                <div class="large-image">
-                  <video autoplay loop muted playsinline>
-                    <source src="./vd/red.mp4" type="video/mp4" />
-                  </video>
-                </div>
-                <div class="large-image">
-                  <video autoplay loop muted playsinline>
-                    <source src="./vd/orange.mp4" type="video/mp4" />
-                  </video>
+                <div class="thumbnail-row">
+                  <div class="thumbnail" data-image="./pic/be1.png">
+                    <img src="./pic/be1.png" alt="Thumbnail 1" />
+                  </div>
+                  <div class="thumbnail" data-image="./pic/be2.png">
+                    <img src="./pic/be2.png" alt="Thumbnail 2" />
+                  </div>
+                  <div class="thumbnail" data-image="./pic/lee2.png">
+                    <img src="./pic/lee2.png" alt="Thumbnail 3" />
+                  </div>
+                  <div class="thumbnail" data-image="./pic/lee.png">
+                    <img src="./pic/lee.png" alt="Thumbnail 4" />
+                  </div>
+                  <div class="thumbnail" data-image="./pic/lee3.png">
+                    <img src="./pic/lee3.png" alt="Thumbnail 5" />
+                  </div>
                 </div>
               </div>
-
-              <div class="thumbnail-row">
-                <div class="thumbnail" data-image="./pic/be1.png">
-                  <img src="./pic/be1.png" alt="Thumbnail 1" />
+              <div class="fashion-info">
+                <h2 class="fashion-title">Graduation Fashion Show</h2>
+                <h2 class="fashion-text">2019. 11</h2>
+                <!-- Toggle Switch -->
+                <div class="toggle-container">
+                  <label class="switch">
+                    <input type="checkbox" id="fashionToggle" />
+                    <span class="slider"></span>
+                  </label>
+                  <span class="toggle-text"></span>
                 </div>
-                <div class="thumbnail" data-image="./pic/be2.png">
-                  <img src="./pic/be2.png" alt="Thumbnail 2" />
-                </div>
-                <div class="thumbnail" data-image="./pic/lee2.png">
-                  <img src="./pic/lee2.png" alt="Thumbnail 3" />
-                </div>
-                <div class="thumbnail" data-image="./pic/lee.png">
-                  <img src="./pic/lee.png" alt="Thumbnail 4" />
-                </div>
-                <div class="thumbnail" data-image="./pic/lee3.png">
-                  <img src="./pic/lee3.png" alt="Thumbnail 5" />
+                <div class="fashion-description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="etc-work-content etc-work-2">
+          <div class="musinsa-codimap-layout">
+            <div class="musinsa-codimap-left">
+              <div class="musinsa-codimap-image">
+                <div class="musinsa-codimap-swiper swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./musinsa/3.jpg" alt="코디1" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./musinsa/4.jpg" alt="코디2" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./musinsa/5.jpg" alt="코디3" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./musinsa/6.jpg" alt="코디4" />
+                    </div>
+                  </div>
+                  <div
+                    class="musinsa-codimap-pagination swiper-pagination"
+                  ></div>
                 </div>
               </div>
             </div>
-
-            <div class="fashion-info">
-              <h2 class="fashion-title">Graduation Fashion Show</h2>
-              <h2 class="fashion-text">2019. 11</h2>
-
-              <!-- Toggle Switch -->
-              <div class="toggle-container">
-                <label class="switch">
-                  <input type="checkbox" id="fashionToggle" />
-                  <span class="slider"></span>
-                </label>
-                <span class="toggle-text"></span>
-              </div>
-
-              <div class="fashion-description"></div>
+            <div class="musinsa-codimap-right">
+              <div class="musinsa-codimap-title">MUSINSA Codimap</div>
+              <figure><img src="./ico/xd.png" alt="" /></figure>
+              <a href="#" class="musinsa-codimap-viewmore">View more &gt;</a>
+              <button class="musinsa-codimap-arrow">&gt;</button>
             </div>
           </div>
         </div>
@@ -519,136 +559,124 @@
     </div>
 
     <!-- Banner Carousel Section -->
-    <section class="banner-section">
-      <div class="banner-container">
-        <section class="carousel-wrapper">
-          <button class="nav-arrow up">
-            <span>&#8249;</span>
-          </button>
-          <div class="carousel-track">
-            <!-- 배너 1: 하리보 -->
-            <div class="banner-card" data-index="0">
-              <img src="./banner/haribo1.png" alt="Team Member 1" />
-            </div>
+    <section class="banner-section" id="banner-section">
+      <div class="banner-section-switch-area" style="display: block">
+        <div class="banner-container">
+          <section class="carousel-wrapper">
+            <button class="nav-arrow up">
+              <span>&#8249;</span>
+            </button>
+            <div class="carousel-track">
+              <!-- 배너 1: 배틀그라운드 -->
+              <div class="banner-card" data-index="0">
+                <img src="./banner/bg1.png" alt="배틀그라운드" />
+                <a
+                  href="./battleground.html"
+                  target="_blank"
+                  class="banner-link"
+                  >자세히 보기</a
+                >
+              </div>
 
-            <!-- 배너 2:스타벅스 -->
-            <div class="banner-card" data-index="1">
-              <img src="./banner/star01.png" alt="starbucks" />
-            </div>
+              <!-- 배너 2: 메이플스토리-->
+              <div class="banner-card" data-index="1">
+                <img src="./banner/maple01.png" alt="메이플스토리" />
+                <a href="./MapleStory.html" target="_blank" class="banner-link"
+                  >자세히 보기</a
+                >
+              </div>
 
-            <!-- 배너 3: yes24 -->
-            <div class="banner-card" data-index="2">
-              <img src="./banner/yes03.png" alt="yes24" />
-            </div>
+              <!-- 배너 3: 동물의 숲 -->
+              <div class="banner-card" data-index="2">
+                <img src="./banner/nin01.png" alt="동물의 숲" />
+              </div>
 
-            <!-- 배너 4: 홈포장마차 -->
-            <div class="banner-card" data-index="3">
-              <img src="./banner/home1.png" alt="홈포장마차" />
-            </div>
+              <!-- 배너 4: 테일즈런너 -->
+              <div class="banner-card" data-index="3">
+                <img src="./banner/tr01.png" alt="테일즈런너" />
+              </div>
 
-            <!-- 배너 5: gs -->
-            <div class="banner-card" data-index="4">
-              <img src="./banner/gs1.png" alt="gs" />
-            </div>
+              <!-- 배너 5: gs -->
+              <div class="banner-card" data-index="4">
+                <img src="./banner/gs1.png" alt="gs" />
+              </div>
 
-            <!-- 배너 6: "올드페리도넛 1 -->
-            <div class="banner-card" data-index="5">
-              <img src="./banner/old1.png" alt="올드페리도넛" />
-            </div>
+              <!-- 배너 6: "올드페리도넛 1 -->
+              <div class="banner-card" data-index="5">
+                <img src="./banner/old1.png" alt="올드페리도넛" />
+              </div>
 
-            <!-- 배너 7: 올드페리도넛 2 -->
-            <div class="banner-card" data-index="6">
-              <img src="./banner/old01.png" alt="올드페리도넛 2" />
-            </div>
+              <!-- 배너 7: 올드페리도넛 2 -->
+              <div class="banner-card" data-index="6">
+                <img src="./banner/old01.png" alt="올드페리도넛 2" />
+              </div>
 
-            <!-- 배너 8: 동물의 숲 -->
-            <div class="banner-card" data-index="7">
-              <img src="./banner/nin01.png" alt="동물의 숲" />
-            </div>
+              <!-- 배너 8: 동물의 숲 -->
+              <div class="banner-card" data-index="7">
+                <img src="./banner/nin01.png" alt="동물의 숲" />
+              </div>
 
-            <!-- 배너 9: 메이플스토리-->
-            <div class="banner-card" data-index="8">
-              <img src="./banner/maple01.png" alt="메이플스토리" />
-            </div>
+              <!-- 배너 9: 메이플스토리-->
+              <div class="banner-card" data-index="8">
+                <img src="./banner/maple01.png" alt="메이플스토리" />
+                <a href="#" target="_blank" class="banner-link">자세히 보기</a>
+              </div>
 
-            <!-- 배너 10: "배틀그라운드 -->
-            <div class="banner-card" data-index="9">
-              <img src="./banner/bg1.png" alt="배틀그라운드" />
-            </div>
+              <!-- 배너 10: "배틀그라운드 -->
+              <div class="banner-card" data-index="9">
+                <img src="./banner/bg1.png" alt="배틀그라운드" />
+                <a href="#" target="_blank" class="banner-link">자세히 보기</a>
+              </div>
 
-            <!-- 배너 11: 테일즈런너 -->
-            <div class="banner-card" data-index="10">
-              <img src="./banner/tr01.png" alt="테일즈런너" />
-            </div>
+              <!-- 배너 11: 테일즈런너 -->
+              <div class="banner-card" data-index="10">
+                <img src="./banner/tr01.png" alt="테일즈런너" />
+              </div>
 
-            <!-- 배너 12: "프로젝트 12" - 설명 12 -->
-            <div class="banner-card" data-index="11">
-              <img src="./pic/project12.jpg" alt="Team Member 12" />
+              <!-- 배너 12: "프로젝트 12" - 설명 12 -->
+              <div class="banner-card" data-index="11">
+                <img src="./pic/project12.jpg" alt="Team Member 12" />
+              </div>
+            </div>
+            <button class="nav-arrow down">
+              <span>&#8250;</span>
+            </button>
+          </section>
+
+          <!-- Banner Section Title -->
+          <div class="banner-section-title">
+            <h1>Banner Design<span class="highlight">.</span></h1>
+          </div>
+
+          <div class="banner-info">
+            <h2 class="banner-title">Luffy</h2>
+            <p class="banner-description">Founder</p>
+            <div class="banner-dots">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+              <span class="dot" data-index="3"></span>
+              <span class="dot" data-index="4"></span>
+              <span class="dot" data-index="5"></span>
+              <span class="dot" data-index="6"></span>
+              <span class="dot" data-index="7"></span>
+              <span class="dot" data-index="8"></span>
+              <span class="dot" data-index="9"></span>
+              <span class="dot" data-index="10"></span>
+              <span class="dot" data-index="11"></span>
             </div>
           </div>
-          <button class="nav-arrow down">
-            <span>&#8250;</span>
-          </button>
-        </section>
-
-        <!-- Banner Section Title -->
-        <div class="banner-section-title">
-          <h1>Banner Design<span class="highlight">.</span></h1>
         </div>
 
-        <div class="banner-info">
-          <h2 class="banner-title">Luffy</h2>
-          <p class="banner-description">Founder</p>
-          <div class="banner-dots">
-            <span class="dot active" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
-            <span class="dot" data-index="3"></span>
-            <span class="dot" data-index="4"></span>
-            <span class="dot" data-index="5"></span>
-            <span class="dot" data-index="6"></span>
-            <span class="dot" data-index="7"></span>
-            <span class="dot" data-index="8"></span>
-            <span class="dot" data-index="9"></span>
-            <span class="dot" data-index="10"></span>
-            <span class="dot" data-index="11"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Detail Panel -->
-      <div class="detail-panel">
-        <button class="detail-close">&times;</button>
-        <div class="detail-images">
-          <div class="detail-image">
-            <img
-              src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411"
-              alt="Detail 1"
-            />
-          </div>
-          <div class="detail-image">
-            <img
-              src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411"
-              alt="Detail 2"
-            />
-          </div>
-          <div class="detail-image">
-            <img
-              src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411"
-              alt="Detail 3"
-            />
-          </div>
-          <div class="detail-image">
-            <img
-              src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411"
-              alt="Detail 4"
-            />
-          </div>
+        <!-- Detail Panel -->
+        <div class="detail-panel">
+          <button class="detail-close">&times;</button>
+          <div class="detail-images"></div>
         </div>
       </div>
     </section>
 
-    <section class="contect-section section6">
+    <section class="contect-section section6" id="section6">
       <video autoplay loop muted playsinline class="contect-bg">
         <source src="./vd/yunseul.mp4" type="video/mp4" />
       </video>
