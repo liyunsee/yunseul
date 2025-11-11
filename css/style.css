@@ -18,11 +18,16 @@
   transform: translateX(-50%);
   bottom: 24px;
   z-index: 20;
+  /* 반짝임 애니메이션 적용 */
+  box-shadow: 0 0 8px 2px #ffee0088;
+  animation: sparkle-banner-link 1.5s infinite alternate;
 }
 .banner-link:hover {
   background: #000000;
   color: #ffffff;
   /* box-shadow: 0 4px 16px #ffee0088; */
+  animation: sparkle-banner-link 0.9s infinite alternate;
+  box-shadow: 0 0 12px 4px #ffee0088, 0 0 20px 8px #fff20033;
 }
 /* Fixed header offset for anchor scroll */
 #section3,
@@ -32,6 +37,25 @@
 #section6 {
   scroll-margin-top: 70px;
   padding-top: 0.1px;
+}
+
+@keyframes sparkle-banner-link {
+  0% {
+    box-shadow: 0 0 4px 1px #ffee0088, 0 0 0px 0px #fff20000;
+    filter: brightness(1);
+  }
+  30% {
+    box-shadow: 0 0 12px 4px #ffee0088, 0 0 20px 8px #fff20033;
+    filter: brightness(1.07);
+  }
+  60% {
+    box-shadow: 0 0 8px 2px #ffee0088, 0 0 12px 4px #fff20022;
+    filter: brightness(1.03);
+  }
+  100% {
+    box-shadow: 0 0 4px 1px #ffee0088, 0 0 0px 0px #fff20000;
+    filter: brightness(1);
+  }
 }
 @keyframes tabRotate {
   0% {
@@ -2241,8 +2265,6 @@ input:checked ~ .toggle-text {
   margin-bottom: 30px;
 }
 
-@charset "UTF-8";
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 /* CONTACT 섹션 전체 반짝반짝 효과 */
 
 .contect-section .sparkle-bg {
