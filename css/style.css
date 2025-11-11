@@ -639,7 +639,7 @@ body {
 
 .yunseul-wrap {
   position: absolute;
-  top: 495px;
+  top: 465px;
   left: 1200px;
   z-index: 10;
   width: 450px;
@@ -747,12 +747,12 @@ section.section2 {
 
 .yunseul-pic dl dt {
   z-index: 2;
-  font-size: 40px;
+  font-size: 30px;
   margin-bottom: 5px;
 }
 
 .yunseul-pic dl dd {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .header {
@@ -2360,6 +2360,8 @@ body {
 }
 
 .yunseul-start p {
+  position: relative;
+  left: 100px;
   margin: 0;
   padding: 0px;
   line-height: 1.5;
@@ -2377,7 +2379,7 @@ body {
 .start-wrap {
   position: absolute;
   top: 635px;
-  left: 840px;
+  left: 960px;
   z-index: 10;
   width: 620px;
   height: auto;
@@ -2385,7 +2387,7 @@ body {
 
 .yunseul-wrap {
   position: absolute;
-  top: 495px;
+  top: 455px;
   left: 1200px;
   z-index: 10;
   width: 450px;
@@ -2489,16 +2491,6 @@ section.section2 {
       0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.6),
       0 0 80px rgba(255, 255, 255, 0.4);
   }
-}
-
-.yunseul-pic dl dt {
-  z-index: 2;
-  font-size: 40px;
-  margin-bottom: 5px;
-}
-
-.yunseul-pic dl dd {
-  font-size: 25px;
 }
 
 .header {

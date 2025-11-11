@@ -1309,50 +1309,41 @@ document.addEventListener("DOMContentLoaded", () => {
   // 배너 컨테이너에서 마우스 휠로 카드 전환
   if (bannerContainer) {
     let wheelTimeout;
-    bannerContainer.addEventListener(
-      "wheel",
-      (e) => {
-        // 디테일 패널이 열려있으면 배너 휠 이벤트 무시
-        if (detailPanel && detailPanel.classList.contains("active")) {
-          return;
-        }
-        // 애니메이션 중이면 무시 (중복 방지)
+    let isMouseInBanner = false;
+
+    // 배너 컨테이너에 마우스 진입/이탈 감지
+    bannerContainer.addEventListener("mouseenter", () => {
+      isMouseInBanner = true;
+    });
+    bannerContainer.addEventListener("mouseleave", () => {
+      isMouseInBanner = false;
+    });
+
+    // window와 document에 휠 이벤트를 모두 등록 (passive: false 필수)
+    const bannerWheelHandler = (e) => {
+      if (!isMouseInBanner) {
+        // 배너 영역 밖이면 기본 스크롤 허용
+        return;
+      }
+      // 배너 영역에 마우스가 있으면 무조건 배너만 동작, 페이지 스크롤 방지
+      e.preventDefault();
+      e.stopPropagation();
+      if (detailPanel && detailPanel.classList.contains("active")) {
+        return;
+      }
+      if (isBannerAnimating) return;
+      clearTimeout(wheelTimeout);
+      wheelTimeout = setTimeout(() => {
         if (isBannerAnimating) return;
-
-        // 활성 카드 영역 위에서만 휠로 카드 전환
-        const activeCard = document.querySelector(".banner-card.active");
-        if (activeCard) {
-          const rect = activeCard.getBoundingClientRect();
-          const mouseX = e.clientX;
-          const mouseY = e.clientY;
-
-          // 마우스가 활성 카드 영역 안에 있는지 확인
-          const isInsideCard =
-            mouseX >= rect.left &&
-            mouseX <= rect.right &&
-            mouseY >= rect.top &&
-            mouseY <= rect.bottom;
-
-          if (isInsideCard) {
-            // 카드 영역 안: 페이지 스크롤 방지, 카드만 전환
-            e.preventDefault();
-            e.stopPropagation();
-
-            clearTimeout(wheelTimeout);
-            wheelTimeout = setTimeout(() => {
-              if (isBannerAnimating) return;
-              if (e.deltaY > 0) {
-                nextBanner();
-              } else if (e.deltaY < 0) {
-                prevBanner();
-              }
-            }, 50);
-          }
-          // 카드 영역 밖: 아무것도 하지 않음 (페이지 스크롤 허용)
+        if (e.deltaY > 0) {
+          nextBanner();
+        } else if (e.deltaY < 0) {
+          prevBanner();
         }
-      },
-      { passive: false }
-    );
+      }, 50);
+    };
+    window.addEventListener("wheel", bannerWheelHandler, { passive: false });
+    document.addEventListener("wheel", bannerWheelHandler, { passive: false });
   }
 
   // 초기 상태 설정
