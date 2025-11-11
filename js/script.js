@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // MUSINSA Codimap Swiper 인스턴스 및 버튼 연동
 let musinsaCodimapSwiper = null;
 function initMusinsaCodimapSwiper() {
@@ -103,7 +101,6 @@ setTimeout(() => {
     setTimeout(initEtcWork2Swiper, 100);
   }
 }, 300);
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
@@ -114,11 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
     smooth: true,
     smoothTouch: false,
   });
-<<<<<<< HEAD
-=======
   // window에 lenis 인스턴스 할당 (header-scroll.js에서 접근 가능하도록)
   window.lenis = lenis;
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
 
   function raf(time) {
     lenis.raf(time);
@@ -138,32 +132,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // 섹션 스냅 효과 - 각 섹션에 강하게 고정 (banner-section이 section 태그로 변경되었으므로 section만 선택)
   const sections = gsap.utils.toArray("section");
   sections.forEach((section, i) => {
-<<<<<<< HEAD
-    const isBanner = section.classList.contains("banner-section");
-=======
     // snap 및 onEnter 옵션 제거: Lenis scrollTo와의 충돌 방지
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
     ScrollTrigger.create({
       trigger: section,
       start: "top top",
       end: "bottom top",
-<<<<<<< HEAD
-      snap: isBanner
-        ? false
-        : {
-            snapTo: 1,
-            duration: 0.8,
-            delay: 0,
-            ease: "power2.inOut",
-          },
-      onEnter: () => {
-        if (!isBanner) {
-          lenis.scrollTo(section, { offset: 0, duration: 0.8 });
-        }
-      },
-=======
       // snap, onEnter 옵션 제거
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
     });
   });
 
@@ -294,14 +268,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 초기 실행
   updateHeaderFill();
 
-<<<<<<< HEAD
-  // 초기 상태 설정: 배경 원형과 내용 요소들 숨기기
-  gsap.set(".samsung-bg, .jeju-bg, .orbit-bg", { scale: 0 });
-=======
   // 초기 상태 설정: 배경 원형과 내용 요소들 숨기기 (첫 슬라이드는 보이게)
   gsap.set(".samsung-bg, .jeju-bg, .orbit-bg", { scale: 0 });
   // 모든 슬라이드 텍스트 숨김
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
   gsap.set(
     ".samsung-title, .jeju-title, .orbit-title, .samsung-subtitle, .jeju-subtitle, .orbit-subtitle, .samsung-des, .jeju-des, .orbit-des, .samsung-btn, .jeju-btn, .orbit-btn",
     {
@@ -309,82 +278,6 @@ document.addEventListener("DOMContentLoaded", () => {
       y: 30,
     }
   );
-<<<<<<< HEAD
-
-  // Etc Work 섹션 초기 상태 설정
-  gsap.set(".graduation-fashion", { opacity: 0, y: 50 });
-  gsap.set(".fashion-title", { opacity: 0 });
-  gsap.set(".fashion-text", { opacity: 0, y: 20 });
-  gsap.set(".toggle-container", { opacity: 0, y: 20 });
-
-  // Contact 섹션 초기 상태 설정
-  gsap.set(".contect-title", { opacity: 0 });
-
-  // 첫 번째 슬라이드 (삼성) 초기 애니메이션
-  setTimeout(() => {
-    const firstSlide = document.querySelector(".swiper-slide:first-child");
-    if (firstSlide) {
-      const timeline = gsap.timeline();
-
-      // 배경 원형 먼저
-      timeline.to(firstSlide.querySelector(".samsung-bg"), {
-        scale: 1,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-
-      // 내용 요소들 순차적으로
-      timeline
-        .to(
-          firstSlide.querySelector(".samsung-title"),
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          },
-          "-=0.4"
-        )
-        .to(
-          firstSlide.querySelector(".samsung-subtitle"),
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          },
-          "-=0.3"
-        )
-        .to(
-          firstSlide.querySelector(".samsung-des"),
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          },
-          "-=0.2"
-        )
-        .to(
-          firstSlide.querySelector(".samsung-btn"),
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          },
-          "-=0.1"
-        )
-        .call(() => {
-          // 바 애니메이션 실행
-          const titleElement = firstSlide.querySelector(".samsung-title");
-          if (titleElement) {
-            titleElement.classList.add("animate-bar");
-          }
-        });
-    }
-  }, 500); // 페이지 로드 후 0.5초 대기
-=======
   // 첫 번째 슬라이드의 텍스트만 보이게
   const firstSlide = document.querySelector(".website-slider .swiper-slide");
   if (firstSlide) {
@@ -436,7 +329,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 300);
   // (불필요한 중복 코드 제거됨)
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
 
   // Lenis는 상단에서 이미 초기화됨
 
@@ -1236,8 +1128,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Banner Carousel 기능
   const bannerData = [
     {
-<<<<<<< HEAD
-=======
       title: "BattleGround",
       description: "BattleGround X HYUNDEI Banner Design",
       color: "#dcac18",
@@ -1259,7 +1149,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     // 5~8번에 기존 1,2,3,4번 데이터 삽입
     {
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
       title: "HARIBO",
       description: "HARIBO Banner Design",
       color: "#FFD700",
@@ -1279,10 +1168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Banner Design",
       color: "#ec6e3c",
     },
-<<<<<<< HEAD
-=======
     // 나머지 동일
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
     {
       title: "MEGABOX",
       description: " MEGABOX X GS 칼텍스 Banner Design",
@@ -1299,29 +1185,6 @@ document.addEventListener("DOMContentLoaded", () => {
       color: "#e104b5",
     },
     {
-<<<<<<< HEAD
-      title: "MineCraft",
-      description: "MineCraft X 동물의 숲 Banner Design",
-      color: "#42af53",
-    },
-    {
-      title: "MapleStory",
-      description: "MapleStory X SANRIO Banner Design",
-      color: "#3814cd",
-    },
-    {
-      title: "BattleGround",
-      description: "BattleGround X HYUNDEI Banner Design",
-      color: "#dcac18",
-    },
-    {
-      title: "TalesRunner",
-      description: "Tales Runner X 귀멸의 칼날 Banner Design",
-      color: "#c23234",
-    },
-    {
-=======
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
       title: "프로젝트 12",
       description: "설명 12",
       color: "#FF4500",
@@ -1503,12 +1366,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 배너별 디테일 이미지
   const detailData = [
-<<<<<<< HEAD
-    // [0] 배너 1: "HARIBO" - HARIBO Banner Design
-    {
-      images: [
-        "./banner/haribo1.png", // 로컬 이미지 경로 예시
-=======
     // 1~4번에 8,9,10,11번 detail 삽입
     {
       images: ["./banner/bg1.png", "./banner/bg2.png", "./banner/bg3.png"],
@@ -1534,16 +1391,10 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       images: [
         "./banner/haribo1.png",
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
         "./banner/haribo2.png",
         "./banner/haribo3.png",
       ],
     },
-<<<<<<< HEAD
-
-    // [1] 배너 2: 스타벅스
-=======
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
     {
       images: [
         "./banner/star01.png",
@@ -1551,19 +1402,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "./banner/star03.png",
       ],
     },
-<<<<<<< HEAD
-
-    // [2] 배너 3: yes24
     {
       images: ["./banner/yes02.png", "./banner/yes03.png"],
     },
-
-    // [3] 배너 4: 홈포장마차
-=======
-    {
-      images: ["./banner/yes02.png", "./banner/yes03.png"],
-    },
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
     {
       images: [
         "./banner/home1.png",
@@ -1571,10 +1412,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "./banner/home3.png",
       ],
     },
-<<<<<<< HEAD
-=======
     // 나머지 동일
->>>>>>> 2034b29 (fix: 배너 순서 및 배경 이미지, 스크롤 등 UI 개선)
 
     // [4] 배너 5: gs
     {
