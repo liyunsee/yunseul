@@ -6,7 +6,7 @@
   margin-top: 12px;
   padding: 6px 18px;
   background: #ffee00;
-  color: #000000;
+  color: #2e2e2e;
   font-weight: 700;
   border-radius: 20px;
   font-size: 18px;
@@ -23,8 +23,8 @@
   animation: sparkle-banner-link 1.5s infinite alternate;
 }
 .banner-link:hover {
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   /* box-shadow: 0 4px 16px #ffee0088; */
   animation: sparkle-banner-link 0.9s infinite alternate;
   box-shadow: 0 0 12px 4px #ffee0088, 0 0 20px 8px #fff20033;
