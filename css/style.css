@@ -996,16 +996,6 @@ section.section2 {
   position: relative;
 }
 
-.swiper-bth {
-  width: 50px;
-  position: absolute;
-  bottom: 150px;
-  right: 332px;
-  width: fit-content;
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
 .swiper-bth button {
   position: relative;
   z-index: 10;
@@ -1044,6 +1034,7 @@ section.section2 {
 .samsung-design {
   top: 30px;
   position: relative;
+  overflow: visible;
 }
 
 .samsung-design figure img {
@@ -1058,20 +1049,43 @@ section.section2 {
   position: absolute;
   width: 500px;
   height: 500px;
-  background-color: #4a90e2;
+  background: radial-gradient(
+    circle,
+    rgba(179, 216, 255, 0.95) 0%,
+    rgba(179, 216, 255, 0.85) 20%,
+    rgba(74, 144, 226, 0.55) 45%,
+    rgba(74, 144, 226, 0.25) 65%,
+    rgba(179, 216, 255, 0.1) 80%,
+    rgba(179, 216, 255, 0.03) 95%,
+    rgba(179, 216, 255, 0) 100%
+  );
   border-radius: 50%;
-  top: 50%;
-  left: 50px;
-  transform: translate(-50%, -50%) scale(0);
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%) scale(0.7);
   z-index: 5;
+  box-shadow: 0 0 40px 10px #b3d8ff66, 0 0 80px 20px #4a90e222;
+  /* animation: samsungGlow 2.5s infinite alternate; */
 }
 
-@keyframes expandCircle {
+@keyframes samsungGlow {
   0% {
-    transform: translate(-50%, -50%) scale(0);
+    box-shadow: 0 0 40px 10px #b3d8ff66, 0 0 80px 20px #4a90e222;
+    filter: brightness(1.05);
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  60% {
+    box-shadow: 0 0 80px 30px #b3d8ff99, 0 0 120px 50px #4a90e244;
+    filter: brightness(1.13);
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
   }
   100% {
-    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 40px 10px #b3d8ff66, 0 0 80px 20px #4a90e222;
+    filter: brightness(1.08);
+    opacity: 0.92;
+    transform: translate(-50%, -50%) scale(0.9);
   }
 }
 
@@ -1152,7 +1166,8 @@ section.section2 {
   font-size: 25px;
   font-weight: 500;
 }
-.view {
+
+.view-pro {
   font-size: 20px;
   font-weight: 500;
 }
@@ -1196,12 +1211,23 @@ section.section2 {
   position: absolute;
   width: 500px;
   height: 500px;
-  background-color: #3bc5ca;
+  background: radial-gradient(
+    circle,
+    rgba(59, 197, 202, 0.95) 0%,
+    rgba(59, 197, 202, 0.85) 20%,
+    rgba(59, 197, 202, 0.55) 45%,
+    rgba(59, 197, 202, 0.18) 70%,
+    rgba(59, 197, 202, 0.06) 85%,
+    rgba(59, 197, 202, 0.01) 97%,
+    rgba(59, 197, 202, 0) 100%
+  );
   border-radius: 50%;
-  top: 50%;
-  left: 50px;
-  transform: translate(-50%, -50%) scale(0);
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%) scale(0.7);
   z-index: 5;
+  box-shadow: 0 0 80px 30px #3bc5ca33, 0 0 160px 60px #3bc5ca11;
+  /* animation: samsungGlow 2.5s infinite alternate; */
 }
 
 .jeju {
@@ -1278,12 +1304,23 @@ section.section2 {
   position: absolute;
   width: 500px;
   height: 500px;
-  background-color: #a98abf;
+  background: radial-gradient(
+    circle,
+    rgba(169, 138, 191, 0.95) 0%,
+    rgba(169, 138, 191, 0.85) 20%,
+    rgba(169, 138, 191, 0.55) 45%,
+    rgba(169, 138, 191, 0.18) 70%,
+    rgba(169, 138, 191, 0.06) 85%,
+    rgba(169, 138, 191, 0.01) 97%,
+    rgba(169, 138, 191, 0) 100%
+  );
   border-radius: 50%;
-  top: 50%;
-  left: 50px;
-  transform: translate(-50%, -50%) scale(0);
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%) scale(0.7);
   z-index: 5;
+  box-shadow: 0 0 80px 30px #c7a1e633, 0 0 160px 60px #e0c3fc11;
+  /* animation: samsungGlow 2.5s infinite alternate; */
 }
 
 .orbit {
@@ -2737,8 +2774,8 @@ section.section2 {
 .swiper-bth {
   width: 50px;
   position: absolute;
-  bottom: 150px;
-  right: 332px;
+  bottom: 110px;
+  right: 335px;
   width: fit-content;
   display: flex;
   justify-content: space-between;
@@ -2790,18 +2827,6 @@ section.section2 {
   position: relative;
   left: -100px;
   z-index: 10;
-}
-
-.samsung-bg {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background-color: #4a90e2;
-  border-radius: 50%;
-  top: 50%;
-  left: 50px;
-  transform: translate(-50%, -50%) scale(0);
-  z-index: 5;
 }
 
 @keyframes expandCircle {
@@ -2930,18 +2955,6 @@ section.section2 {
   z-index: 10;
 }
 
-.jeju-bg {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background-color: #3bc5ca;
-  border-radius: 50%;
-  top: 50%;
-  left: 50px;
-  transform: translate(-50%, -50%) scale(0);
-  z-index: 5;
-}
-
 .jeju {
   border: none;
   display: flex;
@@ -3010,18 +3023,6 @@ section.section2 {
   position: relative;
   left: -100px;
   z-index: 10;
-}
-
-.orbit-bg {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background-color: #a98abf;
-  border-radius: 50%;
-  top: 50%;
-  left: 50px;
-  transform: translate(-50%, -50%) scale(0);
-  z-index: 5;
 }
 
 .orbit {
