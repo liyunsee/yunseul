@@ -254,11 +254,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // fillPercent가 100을 넘지 않도록 제한
       fillPercent = Math.min(100, Math.max(0, fillPercent));
 
-      link.style.background = `linear-gradient(to right, #000 ${fillPercent}%, transparent ${fillPercent}%)`;
+      link.style.background = `linear-gradient(to right, #4b77a4 ${fillPercent}%, transparent ${fillPercent}%)`;
 
       const span = link.querySelector("span");
       if (span) {
-        span.style.color = fillPercent > 50 ? "#fff" : "#000";
+        span.style.color = fillPercent > 50 ? "#fff" : "#3c444d";
       }
     });
   }
@@ -360,8 +360,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Navigation arrows
     navigation: {
-      nextEl: ".website-slider-wrap .button-next",
-      prevEl: ".website-slider-wrap .button-prev",
+      nextEl: ".website-slider-wrap .project-next",
+      prevEl: ".website-slider-wrap .project-prev",
     },
 
     // 슬라이드 변경 시 순차적 애니메이션 (배경 원형 → 내용)
@@ -1130,59 +1130,59 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       title: "BattleGround",
       description: "BattleGround X HYUNDEI Banner Design",
-      color: "#dcac18",
+      color: "#fce8acff",
     },
     {
       title: "MapleStory",
       description: "MapleStory X SANRIO Banner Design",
-      color: "#3814cd",
+      color: "#b3a1faff",
     },
     {
       title: "동물의 숲",
       description: "MineCraft X 동물의 숲 Banner Design",
-      color: "#42af53",
+      color: "#c4fdcdff",
     },
     {
       title: "TalesRunner",
       description: "Tales Runner X 귀멸의 칼날 Banner Design",
-      color: "#c23234",
+      color: "#fcb1b3ff",
     },
     // 5~8번에 기존 1,2,3,4번 데이터 삽입
     {
       title: "HARIBO",
       description: "HARIBO Banner Design",
-      color: "#FFD700",
+      color: "#f8eeb5ff",
     },
     {
       title: "STARBUCKS",
       description: "Banner Design",
-      color: "#00704A",
+      color: "#b5fde5ff",
     },
     {
       title: "YES24 X 여기어때",
       description: "Banner Design",
-      color: "#6bb502",
+      color: "#e1ffb7ff",
     },
     {
       title: "홈 포장마차",
       description: "Banner Design",
-      color: "#ec6e3c",
+      color: "#ffc0a8ff",
     },
     // 나머지 동일
     {
       title: "MEGABOX",
       description: " MEGABOX X GS 칼텍스 Banner Design",
-      color: "#0171bb",
+      color: "#addeffff",
     },
     {
       title: "OldFerryDount",
       description: "OldFerryDount X Starbucks Banner Design",
-      color: "#3cb6aa",
+      color: "#92d1cbff",
     },
     {
       title: "OldFerryDount",
       description: "OldFerryDount X Starbucks Banner Design",
-      color: "#e104b5",
+      color: "#f1b1e4ff",
     },
     {
       title: "프로젝트 12",
