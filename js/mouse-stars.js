@@ -50,18 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
         elementUnderMouse && elementUnderMouse.closest(".contect-section");
 
       // 커스텀 커서 색상 변경
-      if (
-        isInSection2 ||
-        isInYunseulPicture ||
-        isInBannerSection ||
-        isInContectSection
-      ) {
-        // section2, banner-section, yunseul-picture, contect-section에서는 기본 밝은 색상
+      if (isInSection2 || isInYunseulPicture) {
+        // section2, yunseul-picture에서는 밝은 색상
         customCursor.style.background =
           "radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%)";
         customCursor.style.boxShadow = "0 0 15px #386CA0cc, 0 0 30px #386CA0aa";
       } else {
-        // 다른 영역에서는 검은색
+        // banner-section, contect-section 및 기타 영역은 어두운 파랑 계열
         customCursor.style.background =
           "radial-gradient(circle, rgba(75, 137, 189, 0.9) 0%, rgba(75, 137, 189, 0.9) 50%, transparent 100%)";
         customCursor.style.boxShadow = "0 0 15px #386CA0cc, 0 0 30px #386CA0aa";
@@ -119,16 +114,11 @@ document.addEventListener("DOMContentLoaded", function () {
       elementUnderMouse && elementUnderMouse.closest(".contect-section");
 
     let colors;
-    if (
-      isInSection2 ||
-      isInYunseulPicture ||
-      isInBannerSection ||
-      isInContectSection
-    ) {
-      // section2, banner-section, yunseul-picture, contect-section에서는 밝은 색상
+    if (isInSection2 || isInYunseulPicture) {
+      // section2, yunseul-picture에서는 밝은 색상
       colors = ["#e7f8ff", "#ffffff", "#ffffffff"];
     } else {
-      // 다른 섹션에서는 검은색
+      // banner-section, contect-section 및 기타 섹션은 어두운 파랑 계열
       colors = ["#386CA0", "#386CA0", "#386CA0"];
     }
 
