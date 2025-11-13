@@ -1,46 +1,6 @@
 @charset "UTF-8";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
-.contect-title {
-  animation: sparkle-softer 3.6s infinite alternate;
-  text-shadow: 0 0 4px #fff, 0 0 8px #b3c7df33, 0 0 16px #b3c7df11;
-}
-
-@keyframes sparkle-softer {
-  0%,
-  100% {
-    text-shadow: 0 0 4px #fff, 0 0 8px #b3c7df33, 0 0 16px #b3c7df11;
-    filter: brightness(1.03);
-  }
-  50% {
-    text-shadow: 0 0 10px #fff, 0 0 18px #b3c7df44, 0 0 28px #b3c7df22;
-    filter: brightness(1.09);
-  }
-}
-
-@keyframes sparkle-soft {
-  0%,
-  100% {
-    text-shadow: 0 0 6px #fff, 0 0 12px #b3c7df55, 0 0 24px #b3c7df22;
-    filter: brightness(1.08);
-  }
-  50% {
-    text-shadow: 0 0 16px #fff, 0 0 28px #b3c7df77, 0 0 40px #b3c7df33;
-    filter: brightness(1.16);
-  }
-}
-
-@keyframes sparkle {
-  0%,
-  100% {
-    text-shadow: 0 0 10px #fff, 0 0 20px #b3c7df, 0 0 40px #b3c7df44;
-    filter: brightness(1.1);
-  }
-  50% {
-    text-shadow: 0 0 30px #fff, 0 0 60px #b3c7df, 0 0 80px #b3c7df88;
-    filter: brightness(1.25);
-  }
-}
 /* 배너 바로가기 링크 스타일 */
 
 /* musinsa-codimap-arrow 방향 명확하게 */
@@ -178,7 +138,7 @@
 }
 .etc-work-tab-btn {
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 500;
   padding: 8px 22px;
   border: none;
   background: #fff;
@@ -188,6 +148,7 @@
   transition: background 0.18s, color 0.18s,
     box-shadow 0.35s cubic-bezier(0.4, 0.2, 0.2, 1),
     filter 0.35s cubic-bezier(0.4, 0.2, 0.2, 1);
+  border-radius: 30px;
 }
 .etc-work-tab-btn:hover,
 .etc-work-tab-btn:focus {
@@ -3073,7 +3034,7 @@ input:checked ~ .toggle-text {
   display: flex;
   gap: 60px;
   left: 70%;
-  top: 69%;
+  top: 78%;
   transform: translate(-50%, -50%);
   width: fit-content;
   text-align: center;
