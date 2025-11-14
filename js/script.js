@@ -1159,7 +1159,7 @@ document.addEventListener("DOMContentLoaded", () => {
       color: "#b5fde5ff",
     },
     {
-      title: "YES24 X 여기어때",
+      title: "YES24",
       description: "Banner Design",
       color: "#e1ffb7ff",
     },
@@ -1185,9 +1185,9 @@ document.addEventListener("DOMContentLoaded", () => {
       color: "#f1b1e4ff",
     },
     {
-      title: "프로젝트 12",
-      description: "설명 12",
-      color: "#FF4500",
+      title: "엽기떢볶이",
+      description: "엽기떢볶이 Banner Design",
+      color: "#ff6b6bff",
     },
   ];
 
@@ -1424,13 +1424,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
     },
 
-    // [7] 배너 8: "프로젝트 8" - 설명 8
+    // [7] 배너 8: 엽떡
     {
-      images: [
-        "./banner/nin01.png",
-        "./banner/nin02.png",
-        "./banner/nin03.png",
-      ],
+      images: ["./banner/duq1.png", "./banner/duq2.png", "./banner/duq3.png"],
     },
 
     // [8] 배너 9: 메이플스토리
@@ -1452,9 +1448,9 @@ document.addEventListener("DOMContentLoaded", () => {
       images: ["./banner/tr01.png", "./banner/tr02.png", "./banner/tr03.png"],
     },
 
-    // [11] 배너 12: "프로젝트 12" - 설명 12
+    // [11] 배너 12: 엽떡
     {
-      images: ["./pic/project12_1.jpg", "./pic/project12_2.jpg"],
+      images: [],
     },
   ];
 
