@@ -827,7 +827,7 @@ body {
 }
 
 .jeju-title.animate-bar::after {
-  animation: barExpand 1s ease-out forwards;
+  animation: barExpand 0.5s ease-out forwards;
 }
 
 .jeju-title.hide-bar::after {
@@ -1609,11 +1609,11 @@ section.section2 {
 }
 
 .samsung-title.animate-bar::after {
-  animation: barExpand 1s ease-out forwards;
+  animation: barExpand 0.5s ease-out forwards;
 }
 
 .samsung-title.hide-bar::after {
-  animation: barHide 0.3s ease-out forwards;
+  animation: barHide 0.2s ease-out forwards;
 }
 
 @keyframes barExpand {
@@ -1721,7 +1721,7 @@ section.section2 {
 }
 
 .jeju-title.animate-bar::after {
-  animation: barExpand 1s ease-out forwards;
+  animation: barExpand 0.5s ease-out forwards;
 }
 
 .jeju-title.hide-bar::after {
@@ -1793,7 +1793,7 @@ section.section2 {
 }
 
 .orbit-title.animate-bar::after {
-  animation: barExpand 1s ease-out forwards;
+  animation: barExpand 0.5s ease-out forwards;
 }
 
 .orbit-title.hide-bar::after {
