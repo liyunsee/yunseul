@@ -269,10 +269,10 @@ document.addEventListener("DOMContentLoaded", () => {
   updateHeaderFill();
 
   // 초기 상태 설정: 배경 원형과 내용 요소들 숨기기 (첫 슬라이드는 보이게)
-  gsap.set(".samsung-bg, .jeju-bg, .orbit-bg", { scale: 0 });
+  gsap.set(".samsung-bg, .jeju-bg, .orbit-bg, .zara-bg", { scale: 0 });
   // 모든 슬라이드 텍스트 숨김
   gsap.set(
-    ".samsung-title, .jeju-title, .orbit-title, .samsung-subtitle, .jeju-subtitle, .orbit-subtitle, .samsung-des, .jeju-des, .orbit-des, .samsung-btn, .jeju-btn, .orbit-btn",
+    ".samsung-title, .jeju-title, .orbit-title, .zara-title, .samsung-subtitle, .jeju-subtitle, .orbit-subtitle, .zara-subtitle, .samsung-des, .jeju-des, .orbit-des, .zara-des, .samsung-btn, .jeju-btn, .orbit-btn, .zara-btn",
     {
       opacity: 0,
       y: 30,
@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const firstSlide = document.querySelector(".website-slider .swiper-slide");
   if (firstSlide) {
     const firstTexts = firstSlide.querySelectorAll(
-      ".samsung-title, .jeju-title, .orbit-title, .samsung-subtitle, .jeju-subtitle, .orbit-subtitle, .samsung-des, .jeju-des, .orbit-des, .samsung-btn, .jeju-btn, .orbit-btn"
+      ".samsung-title, .jeju-title, .orbit-title, .zara-title, .samsung-subtitle, .jeju-subtitle, .orbit-subtitle, .zara-subtitle, .samsung-des, .jeju-des, .orbit-des, .zara-des, .samsung-btn, .jeju-btn, .orbit-btn, .zara-btn"
     );
     firstTexts.forEach((el) => {
       gsap.set(el, { opacity: 1, y: 0 });
@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (activeSlide) {
           // 배경 원형 축소
           const bgElements = activeSlide.querySelectorAll(
-            ".samsung-bg, .jeju-bg, .orbit-bg"
+            ".samsung-bg, .jeju-bg, .orbit-bg, .zara-bg"
           );
           bgElements.forEach((el) => {
             gsap.set(el, { scale: 0 });
@@ -380,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // 내용 요소들 숨기기
           const contentElements = activeSlide.querySelectorAll(
-            ".samsung-title, .jeju-title, .orbit-title, .samsung-subtitle, .jeju-subtitle, .orbit-subtitle, .samsung-des, .jeju-des, .orbit-des, .samsung-btn, .jeju-btn, .orbit-btn"
+            ".samsung-title, .jeju-title, .orbit-title, .zara-title, .samsung-subtitle, .jeju-subtitle, .orbit-subtitle, .zara-subtitle, .samsung-des, .jeju-des, .orbit-des, .zara-des, .samsung-btn, .jeju-btn, .orbit-btn, .zara-btn"
           );
           contentElements.forEach((el) => {
             gsap.set(el, { opacity: 0, y: 30 });
@@ -397,7 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // 1단계: 배경 원형 확대
           const bgElements = activeSlide.querySelectorAll(
-            ".samsung-bg, .jeju-bg, .orbit-bg"
+            ".samsung-bg, .jeju-bg, .orbit-bg, .zara-bg"
           );
           timeline.to(bgElements, {
             scale: 1,
@@ -407,16 +407,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // 2단계: 내용 요소들 순차적으로 나타내기
           const titleElements = activeSlide.querySelectorAll(
-            ".samsung-title, .jeju-title, .orbit-title"
+            ".samsung-title, .jeju-title, .orbit-title, .zara-title"
           );
           const subtitleElements = activeSlide.querySelectorAll(
-            ".samsung-subtitle, .jeju-subtitle, .orbit-subtitle"
+            ".samsung-subtitle, .jeju-subtitle, .orbit-subtitle, .zara-subtitle"
           );
           const descElements = activeSlide.querySelectorAll(
-            ".samsung-des, .jeju-des, .orbit-des"
+            ".samsung-des, .jeju-des, .orbit-des, .zara-des"
           );
           const btnElements = activeSlide.querySelectorAll(
-            ".samsung-btn, .jeju-btn, .orbit-btn"
+            ".samsung-btn, .jeju-btn, .orbit-btn, .zara-btn"
           );
 
           timeline
@@ -501,7 +501,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 요소 존재 확인
     const samsungProject = document.querySelector(".samsung-project");
     const bgElements = document.querySelectorAll(
-      ".samsung-bg, .jeju-bg, .orbit-bg"
+      ".samsung-bg, .jeju-bg, .orbit-bg, .zara-bg"
     );
 
     if (!samsungProject || bgElements.length === 0) {
@@ -520,7 +520,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 모든 바 애니메이션 클래스 제거
     document
-      .querySelectorAll(".samsung-title, .jeju-title, .orbit-title")
+      .querySelectorAll(
+        ".samsung-title, .jeju-title, .orbit-title, .zara-title"
+      )
       .forEach((el) => {
         el.classList.remove("animate-bar", "hide-bar");
       });
@@ -552,7 +554,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const activeSlide = document.querySelector(".swiper-slide-active");
           if (activeSlide) {
             const currentTitleElements = activeSlide.querySelectorAll(
-              ".samsung-title, .jeju-title, .orbit-title"
+              ".samsung-title, .jeju-title, .orbit-title, .zara-title"
             );
 
             currentTitleElements.forEach((el) => {
