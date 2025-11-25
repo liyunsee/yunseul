@@ -1,5 +1,13 @@
 @charset "UTF-8";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+/* 배너 설명 여백 최소화 */
+.banner-extra {
+  position: relative;
+  top: -42px;
+  margin-bottom: 0px;
+  font-size: 15px;
+  line-height: 1.4;
+}
 
 @font-face {
   font-family: "Cafe24ShiningStar";
@@ -1895,7 +1903,7 @@ section.section2 {
   left: 20px;
   width: 0;
   height: 25px;
-  background-color: #222;
+  background-color: #9e9e9e;
   z-index: -1;
 }
 .zara-title.animate-bar::after {
@@ -1928,7 +1936,7 @@ section.section2 {
 
 /* Etc Work 섹션 */
 .section5 {
-  background-color: #f2f7fb;
+  background-color: #ededed;
   padding: 100px 0;
   min-height: 100vh;
 }

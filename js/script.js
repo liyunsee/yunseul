@@ -1205,6 +1205,21 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentBannerIndex = 0;
   let isBannerAnimating = false;
 
+  const bannerSubtexts = [
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+    "Adobe Illustrator, PhotoShop",
+  ];
+
   function updateBannerClasses() {
     const totalCards = bannerCards.length;
 
@@ -1262,6 +1277,13 @@ document.addEventListener("DOMContentLoaded", () => {
         bannerTitle.style.opacity = "1";
         bannerDescription.style.opacity = "1";
       }, 150);
+    }
+
+    // 배너마다 다른 설명을 .banner-extra에 표시 (이름 없이 설명만)
+    const bannerExtra = document.querySelector(".banner-extra");
+    if (bannerExtra) {
+      const subtext = bannerSubtexts[currentBannerIndex] || "";
+      bannerExtra.textContent = subtext;
     }
   }
 
